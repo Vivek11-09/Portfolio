@@ -22,12 +22,12 @@ export default function Home() {
 
         {/* Title */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-3">
-          Vivek Pandey — Blockchain Architect | AI Agent Builder | Automation Specialist
+          Vivek - Cloud Developer | Blockchain Architect | AI Innovator | Entrepreneur
         </h1>
 
         {/* Subtitle */}
         <p className="max-w-xl mx-auto text-base sm:text-lg md:text-xl text-gray-700 mb-8 font-medium">
-          I build decentralized systems, intelligent agents, and automation bots to transform how people work, connect, and scale.
+        Empowering digital transformation with secure cloud infrastructure, decentralized systems, and intelligent automation.
         </p>
 
         {/* CTA Buttons */}
