@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Vivek Pandey · AI Automation</title>
+<meta name="description" content="Founder-engineer building AI automation for service businesses: instant lead response, automated follow-up and internal knowledge assistants. Fixed price, live in 2–4 weeks.">
+<meta property="og:title" content="Vivek Pandey · Founder-Engineer, AI Automation">
+<meta property="og:description" content="Stop losing leads and hours to manual work. Fixed-price AI automation, live in 2–4 weeks.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single-column consulting site. Hero → problems → offers → example system → process → about → FAQ → contact. */
+:root{
+  --bg:#EDEFF3; --fg:#141A24; --muted:#566070; --line:#CBD1DB; --surface:#FFFFFF; --accent:#2F5BEA; --accent-ink:#FFFFFF; --chip:#E1E6F0;
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"Figtree","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0F131A; --fg:#E6EAF2; --muted:#97A2B4; --line:#253041; --surface:#161C26; --accent:#7C9BFF; --accent-ink:#0B1020; --chip:#1D2634; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0F131A; --fg:#E6EAF2; --muted:#97A2B4; --line:#253041; --surface:#161C26; --accent:#7C9BFF; --accent-ink:#0B1020; --chip:#1D2634; color-scheme:dark }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--bg); color:var(--fg); font-family:var(--f-body); font-size:16px; line-height:1.6; padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+h1,h2,h3{margin:0; text-wrap:balance; font-family:var(--f-display); letter-spacing:-.02em}
+p{margin:0}
+[id]{scroll-margin-top:80px}
+[hidden]{display:none!important}
+.wrap{max-width:1080px; margin:0 auto; padding-inline:clamp(16px,4vw,40px)}
+.prose{max-width:62ch}
+
+.bar{position:sticky; top:env(safe-area-inset-top,0px); z-index:5; backdrop-filter:blur(10px); background:color-mix(in srgb,var(--bg) 85%,transparent); border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:12px; flex-wrap:wrap}
+.mark{font-family:var(--f-display); font-weight:700; font-size:19px; text-decoration:none; display:flex; align-items:center; gap:10px}
+.mark i{width:10px; height:10px; background:var(--accent); border-radius:2px; transform:rotate(45deg)}
+.nav{display:flex; gap:4px; flex-wrap:wrap; align-items:center}
+.nav a{text-decoration:none; font-size:14px; font-weight:500; padding:6px 12px; border-radius:999px; opacity:.75}
+.nav a:hover{opacity:1; background:color-mix(in srgb,currentColor 8%,transparent)}
+.nav a.cta{opacity:1; background:var(--accent); color:var(--accent-ink); margin-left:6px}
+
+.hero{padding-block:64px 40px; display:grid; grid-template-columns:minmax(0,1.45fr) minmax(0,1fr); gap:48px; align-items:center}
+.hero .stats{grid-column:1/-1; margin-top:8px}
+.hero-photo{margin:0; position:relative; border-radius:18px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/5; max-height:540px; background:var(--chip)}
+.hero-photo img{width:100%; height:100%; object-fit:cover; object-position:center 20%; display:block}
+.hero-photo figcaption{position:absolute; inset:auto 0 0 0; padding:40px 18px 16px; background:linear-gradient(transparent,rgba(8,10,14,.82)); color:#fff; display:grid; gap:2px}
+.hero-photo figcaption b{font-family:var(--f-display); font-size:18px}
+.hero-photo figcaption span{font-family:var(--f-mono); font-size:12px; letter-spacing:.04em; opacity:.85}
+.eyebrow{font-family:var(--f-mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+h1{font-size:clamp(36px,6vw,66px); line-height:1.03; letter-spacing:-.03em; max-width:16ch; margin-top:14px}
+h2{font-size:clamp(24px,3vw,32px)}
+h3{font-size:19px; letter-spacing:-.01em}
+.lede{font-size:19px; color:var(--muted); margin-top:20px}
+.row{display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; align-items:center}
+.btn{display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border-radius:999px; font-weight:600; text-decoration:none; border:1px solid transparent; font-size:15px; cursor:pointer; font-family:var(--f-body)}
+.btn.primary{background:var(--accent); color:var(--accent-ink)}
+.btn.ghost{border-color:var(--line); background:transparent; color:inherit}
+.note{font-size:13px; color:var(--muted)}
+
+.stats{display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--line); border-radius:14px; overflow:hidden; margin-top:44px; background:var(--surface)}
+.stats div{padding:18px 20px; border-right:1px solid var(--line); display:flex; flex-direction:column; gap:2px}
+.stats div:last-child{border-right:0}
+.stats b{font-family:var(--f-display); font-size:22px}
+.stats span{font-size:13px; color:var(--muted)}
+
+.sec{padding-block:48px; border-top:1px solid var(--line)}
+.sec-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:24px}
+.sec-head p{color:var(--muted); max-width:52ch}
+.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+.grid2{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:22px; display:flex; flex-direction:column; gap:8px; min-width:0}
+.card p{color:var(--muted); font-size:15px}
+.card ul{margin:4px 0 0; padding-left:18px; color:var(--muted); font-size:15px; display:grid; gap:4px}
+.meta{font-family:var(--f-mono); font-size:12px; color:var(--muted); letter-spacing:.04em}
+.fix{font-size:14px; color:var(--fg); margin-top:auto; padding-top:8px; border-top:1px dashed var(--line)}
+.fix b{color:var(--accent); font-weight:600}
+.price{font-family:var(--f-display); font-size:26px; margin-top:auto; padding-top:12px; line-height:1.1}
+.price small{display:block; font-family:var(--f-mono); font-size:12px; color:var(--muted); margin-top:4px; font-weight:400}
+.card.lead{background:var(--fg); color:var(--bg); border-color:var(--fg)}
+.card.lead p,.card.lead ul,.card.lead .meta,.card.lead .price small{color:color-mix(in srgb,var(--bg) 75%,transparent)}
+.retainer{margin-top:16px; flex-direction:row; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px}
+.retainer .price{margin:0; padding:0}
+.sub{margin:28px 0 14px}
+
+.flow{list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(5,1fr); gap:10px}
+.flow li{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px; position:relative; display:flex; flex-direction:column; gap:4px}
+.flow li b{font-size:15px}
+.flow li span{font-size:13px; color:var(--muted)}
+.flow li:not(:last-child)::after{content:"→"; position:absolute; right:-10px; top:50%; transform:translate(50%,-50%); color:var(--accent); font-weight:700; z-index:1}
+.flow em{font-style:normal; font-family:var(--f-mono); font-size:11px; color:var(--accent)}
+
+.steps{list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(4,1fr); gap:16px; counter-reset:s}
+.steps li{counter-increment:s; display:flex; flex-direction:column; gap:6px; padding-top:14px; border-top:2px solid var(--accent)}
+.steps li::before{content:counter(s,decimal-leading-zero); font-family:var(--f-mono); font-size:12px; color:var(--accent)}
+.steps p{color:var(--muted); font-size:15px}
+
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chip{font-family:var(--f-mono); font-size:12px; padding:3px 9px; border-radius:6px; background:var(--chip)}
+
+.bio{display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:40px; align-items:start}
+.terms{list-style:none; padding:0; margin:12px 0 0; display:grid; gap:12px}
+.terms li{display:grid; gap:2px; padding-left:14px; border-left:2px solid var(--accent)}
+.terms li span{font-size:14px; color:var(--muted)}
+.card a.more{color:var(--accent); font-size:14px; font-weight:500; text-decoration:none; margin-top:auto}
+.card a.more:hover{text-decoration:underline}
+.card.lead a.more{color:inherit}
+.bio p{color:var(--muted)}
+.bio p + p{margin-top:12px}
+.bio strong{color:var(--fg); font-weight:600}
+.creds{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:22px}
+.creds div{border-left:2px solid var(--accent); padding-left:12px; display:grid; gap:2px}
+.creds b{font-size:15px}
+.creds span{font-size:13px; color:var(--muted)}
+.creds a{color:var(--accent); text-decoration:none}
+.creds a:hover{text-decoration:underline}
+
+.faq{display:grid; gap:10px; max-width:780px}
+.faq details{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px 18px}
+.faq summary{cursor:pointer; font-weight:600; list-style:none; display:flex; justify-content:space-between; gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+"; color:var(--accent); font-family:var(--f-mono)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--muted); margin-top:8px; font-size:15px}
+
+.contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start}
+.direct{display:grid; gap:12px; margin-top:24px}
+.direct div{display:grid; gap:2px}
+.direct span{font-size:13px; color:var(--muted)}
+.direct a{font-weight:500; text-decoration:none}
+.direct a:hover{color:var(--accent)}
+form{display:grid; gap:14px; max-width:560px}
+.two{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+label{display:grid; gap:6px; font-size:14px; font-weight:500}
+input,textarea,select{font:inherit; font-size:15px; padding:11px 13px; border-radius:10px; border:1px solid var(--line); background:var(--surface); color:inherit; width:100%}
+textarea{min-height:110px; resize:vertical}
+.out{gap:10px; padding:16px; border-radius:12px; border:1px dashed var(--line); background:var(--surface); display:grid}
+.out pre{white-space:pre-wrap; margin:0; font-family:var(--f-mono); font-size:13px; color:var(--muted)}
+
+footer{padding-block:28px; font-size:13px; color:var(--muted); border-top:1px solid var(--line)}
+footer .wrap{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+
+@media (max-width:860px){
+  .contact-grid,.bio{grid-template-columns:1fr}
+  .grid3,.steps,.stats{grid-template-columns:1fr 1fr}
+  .stats div:nth-child(2){border-right:0}
+  .stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .flow{grid-template-columns:1fr}
+  .flow li:not(:last-child)::after{content:"↓"; right:50%; top:auto; bottom:-10px; transform:translate(50%,50%)}
+  .hero{grid-template-columns:1fr; gap:28px}
+  .hero-photo{max-width:340px; max-height:none}
+  .creds{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .grid3,.grid2,.steps,.two{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}
+  .stats div{border-right:0; border-bottom:1px solid var(--line)}
+  .stats div:last-child{border-bottom:0}
+  .nav a:not(.cta){display:none}
+}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top"><i aria-hidden="true"></i>Vivek Pandey</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#problems">Problems</a><a href="#offers">Offers</a><a href="#proof">Proof</a><a href="#process">Process</a><a href="#about">About</a><a href="#faq">FAQ</a>
+      <a class="cta js-book" href="#contact">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Founder · Engineer · AI automation</div>
+      <h1>Stop losing leads and hours to manual work.</h1>
+      <p class="lede prose">I'm a founder who writes the code. I build AI systems that reply to every new lead in minutes, follow up until they book, and take repetitive admin off your team.</p>
+      <p class="lede prose" style="margin-top:12px; color:var(--fg)">Fixed price before I start. Working system in 2–4 weeks.</p>
+      <div class="row">
+        <a class="btn primary js-book" href="#contact">Book a free 20-min automation call</a>
+        <a class="btn ghost" href="#proof">See what I've built</a>
+      </div>
+      <p class="note" style="margin-top:12px">No pitch deck. We look at one workflow. If automating it won't pay for itself, I'll tell you.</p>
+    </div>
+    <figure class="hero-photo">
+      <img src="Raj.png" alt="Vivek Pandey at his desk">
+      <figcaption><b>Vivek Pandey</b><span>Founder · AI systems engineer</span></figcaption>
+    </figure>
+    <div class="stats">
+      <div><b>2–4 weeks</b><span>From kickoff to live system</span></div>
+      <div><b>Fixed price</b><span>Agreed before any build starts</span></div>
+      <div><b>You own it</b><span>Code, data and accounts stay yours</span></div>
+      <div><b>Weekly demos</b><span>Working software, on your real data</span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="problems">
+    <div class="sec-head"><h2>Does any of this sound familiar?</h2><p>These are the problems I fix. If none of them hurt, you probably don't need me yet.</p></div>
+    <div class="grid2">
+      <div class="card"><span class="meta">Speed to lead</span><h3>New enquiries wait hours for a reply</h3><p>Leads come in at night, at weekends or during busy days. By the time someone replies, the prospect has already booked with whoever answered first.</p><p class="fix"><b>Fix:</b> instant, personalised AI response that qualifies the lead and books it straight into your calendar.</p></div>
+      <div class="card"><span class="meta">Follow-up</span><h3>Follow-up depends on someone remembering</h3><p>Quotes go out and nobody chases them. Warm leads go cold in the CRM because there was no next step.</p><p class="fix"><b>Fix:</b> automated, context-aware follow-up sequences that stop as soon as the prospect replies.</p></div>
+      <div class="card"><span class="meta">Knowledge</span><h3>Your team answers the same questions all day</h3><p>The answers are in SOPs, policies, past tickets and senior people's heads. New hires take months to get up to speed.</p><p class="fix"><b>Fix:</b> a private AI assistant trained on your documents that answers with sources and can't see anything it shouldn't.</p></div>
+      <div class="card"><span class="meta">Admin</span><h3>People copy data between tools by hand</h3><p>Forms to CRM, email to spreadsheet, invoice to accounting. It's slow, error-prone and expensive for skilled staff.</p><p class="fix"><b>Fix:</b> workflow automation across the tools you already pay for. No rip-and-replace.</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="offers">
+    <div class="sec-head"><h2>Offers &amp; pricing</h2><span class="meta">Fixed scope · fixed price · a few clients at a time</span></div>
+    <div class="grid3">
+      <div class="card lead"><span class="meta">Start here · 1 week</span><h3>Automation Audit</h3><p>I map your lead flow and admin workflows, estimate the hours and revenue leaking from each, and give you a prioritised build plan with costs.</p><ul><li>Workflow map &amp; bottleneck report</li><li>ROI estimate per automation</li><li>Fixed-price build proposal</li></ul><div class="price">$500<small>Credited in full if you build with me</small></div></div>
+      <div class="card"><span class="meta">Build · 2–3 weeks</span><h3>Lead Response &amp; Follow-up System</h3><p>Every inbound lead gets an instant reply. It is qualified, booked and followed up automatically, and your CRM stays up to date without anyone touching it.</p><ul><li>Web form, email &amp; WhatsApp intake</li><li>AI qualification &amp; calendar booking</li><li>CRM sync + follow-up sequences</li></ul><div class="price">From $2,500<small>One-time build</small></div></div>
+      <div class="card"><span class="meta">Build · 3–4 weeks</span><h3>Internal Knowledge Assistant</h3><p>A private assistant over your SOPs, policies and documents. It gives your team accurate answers with sources in Slack, Teams or the browser.</p><ul><li>Secure document ingestion (RAG)</li><li>Role-based access to sources</li><li>Answer quality testing before launch</li></ul><div class="price">From $3,500<small>One-time build</small></div></div>
+    </div>
+    <div class="card retainer">
+      <div><span class="meta">After launch · monthly</span><h3 style="margin-top:4px">Care &amp; Improve Plan</h3><p>Monitoring, fixes, prompt and model updates, and one improvement every month. Cancel anytime.</p></div>
+      <div class="price">From $400/mo</div>
+    </div>
+  </section>
+
+  <section class="sec" id="example">
+    <div class="sec-head"><h2>What a lead response system looks like</h2><span class="meta">Example scope · every build is fitted to your stack</span></div>
+    <ol class="flow">
+      <li><em>0 min</em><b>Lead arrives</b><span>Web form, email, WhatsApp or ad lead</span></li>
+      <li><em>&lt; 2 min</em><b>AI replies</b><span>Personal reply in your tone, using your offer details</span></li>
+      <li><em>Same thread</em><b>Qualifies</b><span>Asks your qualifying questions and scores the lead</span></li>
+      <li><em>Auto</em><b>Books or routes</b><span>Good fits get a calendar slot, edge cases go to a human</span></li>
+      <li><em>Days 1–14</em><b>Follows up</b><span>Stops as soon as they reply. Everything is logged in your CRM</span></li>
+    </ol>
+    <h3 class="sub">Works with the tools you already use</h3>
+    <div class="chips"><span class="chip">HubSpot</span><span class="chip">Pipedrive</span><span class="chip">GoHighLevel</span><span class="chip">Salesforce</span><span class="chip">Gmail / Outlook</span><span class="chip">WhatsApp Business</span><span class="chip">Calendly / Cal.com</span><span class="chip">Slack / Teams</span><span class="chip">Google Drive / SharePoint</span><span class="chip">Zapier / Make / n8n</span><span class="chip">Custom APIs</span></div>
+  </section>
+
+  <section class="sec" id="proof">
+    <div class="sec-head"><h2>Built, not pitched</h2><p>Systems I've shipped. Client case studies go here as projects go live.</p></div>
+    <div class="card lead" id="demo-card" hidden style="margin-bottom:16px"><span class="meta">2-minute demo</span><h3>Watch a lead get answered, qualified and booked</h3><p>A live run of the Lead Response System, from form submission to calendar invite.</p><a class="more" id="demo-link" href="#" target="_blank" rel="noopener noreferrer">Watch the demo →</a></div>
+    <div class="grid2">
+      <div class="card"><span class="meta">n8n · OpenAI · HubSpot</span><h3>AI sales agent</h3><p>Qualifies inbound leads, follows up with prospects, and updates the CRM in real time from the conversation. It's the same pattern behind the Lead Response System.</p></div>
+      <div class="card"><span class="meta">Jenkins · GitLab · Docker · AWS · GCP</span><h3>Production infrastructure for a logistics business</h3><p>Built CI/CD pipelines and ran the AWS and GCP infrastructure behind supply-chain systems, with security checks built into the pipeline.</p></div>
+      <div class="card"><span class="meta">Open source · merged</span><h3>Fixed an AI agent in BNB Chain's developer hub</h3><p>Diagnosed plugin-loading failures in the Eliza AI agent and added error handling for provider and response edge cases. Reviewed and merged by BNB Chain's core maintainers.</p><a class="more" href="https://github.com/bnb-chain/example-hub/commit/1b06212" target="_blank" rel="noopener noreferrer">See the commit →</a></div>
+      <div class="card"><span class="meta">National winner · team lead</span><h3>Smart India Hackathon</h3><p>Led a 6-person team to win the Government of India's national innovation challenge, building a secure, interoperable system for verified academic credentials.</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="process">
+    <div class="sec-head"><h2>How an engagement runs</h2></div>
+    <ol class="steps">
+      <li><h3>20-min call</h3><p>Free. We pick one workflow and decide whether automation will pay for itself. If it won't, I'll say so.</p></li>
+      <li><h3>Audit</h3><p>One week. I study the workflow and data, then send a fixed-price proposal with expected impact.</p></li>
+      <li><h3>Build</h3><p>2–4 weeks with a live demo every week on your real data. You see working software early, not slides.</p></li>
+      <li><h3>Launch &amp; hand-over</h3><p>Deployment, documentation and a team walkthrough. Optional Care plan afterwards.</p></li>
+    </ol>
+  </section>
+
+  <section class="sec" id="about">
+    <div class="bio">
+      <div class="prose">
+        <h2 style="margin-bottom:16px">A founder who writes the code</h2>
+        <p>Most AI projects die between the slide deck and production. The consultant doesn't build, the developer doesn't understand the business, and the founder pays for both. <strong>I do both.</strong></p>
+        <p>I'm a computer engineer and the founder of Riwaazo, where I make product, budget and hiring calls every week. I look at your business the way an operator does: where leads go cold, where hours disappear, where decisions wait on one person. Then I build the system that fixes it, and stay until it runs in production.</p>
+        <p>You work with me from first call to launch. Nobody sells you a project and hands it to a dev shop.</p>
+        <div class="creds">
+          <div><b>Founder, Riwaazo</b><span>Runs product, tech and the sales team</span></div>
+          <div><b>Smart India Hackathon winner</b><span>National innovation challenge, team lead</span></div>
+          <div><b>Certified</b><span>AWS Cloud Practitioner · TensorFlow Developer</span></div>
+        </div>
+        <div class="chips" style="margin-top:20px"><span class="chip">Python</span><span class="chip">LLMs &amp; RAG</span><span class="chip">Node / NestJS</span><span class="chip">Next.js</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">AWS</span><span class="chip">TensorFlow</span><span class="chip">YOLO / OpenCV</span></div>
+      </div>
+      <div class="card">
+        <span class="meta">My terms</span>
+        <ul class="terms">
+          <li><b>One workflow, one number.</b><span>We agree on the metric before I build anything.</span></li>
+          <li><b>Fixed price.</b><span>No hourly billing, no surprise invoices.</span></li>
+          <li><b>Working software every week.</b><span>On your real data, not slides.</span></li>
+          <li><b>A few clients at a time.</b><span>Each project gets my full attention.</span></li>
+          <li><b>Straight answers.</b><span>If I can't move your number, I'll tell you on the first call.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="sec-head"><h2>Questions clients ask</h2></div>
+    <div class="faq">
+      <details><summary>You're one person. Why should I trust you with this?</summary><p>Because you never have to take my word for it. You see working software on your own data every week, the build is paid 50% up front and 50% at launch, and you own all the code and accounts from day one. If it isn't working, you'll know in week one, not month three.</p></details>
+      <details><summary>Do I need to switch CRM or tools?</summary><p>No. I build on top of what you already use. If a tool is genuinely blocking you, I'll flag it in the audit, and the decision is yours.</p></details>
+      <details><summary>What will it cost to run each month?</summary><p>Usually the AI usage and hosting is small next to the build cost. The audit gives you a specific monthly running estimate before you commit to anything.</p></details>
+      <details><summary>What if the AI says something wrong to a customer?</summary><p>Every system has guardrails: it answers only from approved information, routes anything uncertain to a human, and logs every conversation. We test it on real examples before it goes live.</p></details>
+      <details><summary>Who owns the system?</summary><p>You do. The code, data and accounts are set up under your business, and you get documentation so any developer can maintain it.</p></details>
+      <details><summary>You're remote. How does communication work?</summary><p>Written updates in a shared channel, a live demo every week at a time that suits your time zone, and one point of contact throughout.</p></details>
+      <details><summary>How do payments work?</summary><p>The audit is paid up front. Builds are typically 50% to start and 50% at launch, invoiced in USD.</p></details>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="contact-grid">
+      <div class="prose">
+        <h2>Tell me which workflow is costing you.</h2>
+        <p style="color:var(--muted); margin-top:12px">A few lines is enough. I reply within one working day, and if automation isn't the answer, I'll tell you.</p>
+        <div class="row"><a class="btn primary js-book" href="#contact">Book a free 20-min call</a></div>
+        <div class="direct">
+          <div><span>Email</span><a href="mailto:vivekpan1192@gmail.com">vivekpan1192@gmail.com</a></div>
+          <div><span>LinkedIn</span><a href="https://www.linkedin.com/in/vivek-pandey-0b855b17b" target="_blank" rel="noopener noreferrer">linkedin.com/in/vivek-pandey</a></div>
+        </div>
+      </div>
+      <form id="enq" novalidate>
+        <div class="two">
+          <label for="f-name">Your name<input id="f-name" name="name" autocomplete="name" placeholder="Sarah Mitchell"></label>
+          <label for="f-co">Company website<input id="f-co" name="company" autocomplete="url" placeholder="northpointmarketing.com"></label>
+        </div>
+        <div class="two">
+          <label for="f-need">What do you need?
+            <select id="f-need" name="need"><option>Lead response &amp; follow-up</option><option>Internal knowledge assistant</option><option>Workflow / admin automation</option><option>Automation audit</option><option>Something else</option></select></label>
+          <label for="f-budget">Budget range
+            <select id="f-budget" name="budget"><option>$2,000 – $5,000</option><option>$5,000 – $10,000</option><option>$10,000+</option><option>Under $2,000</option><option>Not sure yet</option></select></label>
+        </div>
+        <label for="f-msg">What's the problem?<textarea id="f-msg" name="msg" placeholder="We get ~40 leads a week from ads, but replies take 6+ hours and nobody follows up after the first email…"></textarea></label>
+        <button class="btn primary" type="submit">Send enquiry</button>
+        <div class="out" role="status" hidden><pre></pre><button class="btn ghost" type="button" id="copy">Copy message</button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>Vivek Pandey · Founder · AI systems that reply to every lead and cut manual ops</span><span>© 2026</span></div></footer>
+
+<script>
+(function(){
+  // Paste a Calendly / Cal.com link here; until then "Book a call" buttons fall back to the contact form.
+  const BOOKING_URL = 'https://calendly.com/vivekpandey_11';
+  // Paste the Loom demo link here; the demo card stays hidden until it's set.
+  const DEMO_URL = '';
+  const EMAIL = 'vivekpan1192@gmail.com';
+  if (BOOKING_URL) document.querySelectorAll('.js-book').forEach(a=>{a.href=BOOKING_URL; a.target='_blank'; a.rel='noopener noreferrer';});
+  if (DEMO_URL){ document.getElementById('demo-link').href=DEMO_URL; document.getElementById('demo-card').hidden=false; }
+
+  const f=document.getElementById('enq'), out=f.querySelector('.out'), pre=out.querySelector('pre');
+  f.addEventListener('submit',e=>{
+    e.preventDefault(); const d=Object.fromEntries(new FormData(f));
+    const subject = `Enquiry: ${d.need}${d.company?` – ${d.company}`:''}`;
+    const lines=['Hi Vivek,','',`I'm ${d.name||'[name]'}${d.company?` (${d.company})`:''}.`,`Interested in: ${d.need}`,`Budget range: ${d.budget}`];
+    if(d.msg) lines.push('','The problem:',d.msg); lines.push('','Could we set up a 20-minute call?','','Thanks!');
+    const body = lines.join('\n');
+    pre.textContent = body; out.hidden = false;
+    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+  document.getElementById('copy').addEventListener('click',ev=>{
+    const b=ev.currentTarget;
+    navigator.clipboard.writeText(pre.textContent).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy message',1600)})
+    .catch(()=>{const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press Ctrl+C'});
+  });
+})();
+</script>
+</body>
+</html>
